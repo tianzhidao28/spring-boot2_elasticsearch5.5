@@ -1,19 +1,12 @@
 package starter.repository;
 
-import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
-import org.springframework.stereotype.Repository;
-import starter.model.Director;
+import org.springframework.data.elasticsearch.repository.ElasticsearchCrudRepository;
 import starter.model.Movie;
 
-import java.util.List;
-
 /**
- * Created by Nasir on 12-09-2015.
+ * @author rocyuan
+ * @since 2018/1/21 上午12:39
  */
-@Repository
-public interface MovieRepository extends ElasticsearchRepository<Movie, Long> {
 
-    List<Movie> findByName(String name);
-    List<Movie> findByRatingBetween(Double start, Double end);
-    List<Movie> findByDirector(Director director);
+public interface MovieRepository extends ElasticsearchCrudRepository<Movie,Long> {
 }

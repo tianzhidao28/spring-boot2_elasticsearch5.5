@@ -6,23 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+import org.springframework.context.annotation.ImportResource;
 import starter.model.Director;
-import starter.model.Movie;
 import starter.model.Genre;
+import starter.model.Movie;
 import starter.service.MovieService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class ElasticsearchSpringDataApplication implements CommandLineRunner{
+public class ElasticsearchSpringDataApplication implements CommandLineRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(ElasticsearchSpringDataApplication.class);
 
 
     @Autowired
-    private MovieService movieService;
+    MovieService movieService;
 
     public static void main(String[] args) {
         SpringApplication.run(ElasticsearchSpringDataApplication.class, args);
@@ -32,14 +32,14 @@ public class ElasticsearchSpringDataApplication implements CommandLineRunner{
     public void run(String... strings) throws Exception {
         addMovies();
 
-        List<Movie> dabanggNamedQuery = movieService.getByName("dabangg");
-        logger.info("Content of dabangg name book {}", dabanggNamedQuery);
-
-        List<Movie> readyMovieQuery = movieService.getByName("ready");
-        logger.info("Content of dabangg name book {}", dabanggNamedQuery);
-
-        List<Movie> byRating = movieService.getByRatingInterval(7d, 9d);
-        logger.info("Content of book by rating 7 9 {}", byRating);
+//        List<Movie> dabanggNamedQuery = movieService.getByName("dabangg");
+//        logger.info("Content of dabangg name book {}", dabanggNamedQuery);
+//
+//        List<Movie> readyMovieQuery = movieService.getByName("ready");
+//        logger.info("Content of dabangg name book {}", dabanggNamedQuery);
+//
+//        List<Movie> byRating = movieService.getByRatingInterval(7d, 9d);
+//        logger.info("Content of book by rating 7 9 {}", byRating);
     }
 
     private void addMovies() {
@@ -58,7 +58,7 @@ public class ElasticsearchSpringDataApplication implements CommandLineRunner{
 
     private Movie getFirstMovie() {
         Movie firstMovie = new Movie();
-        firstMovie.setId(1l);
+        firstMovie.setId(1L);
         firstMovie.setRating(8.4d);
         firstMovie.setName("Batman v Superman: Dawn of Justice");
 
@@ -77,7 +77,7 @@ public class ElasticsearchSpringDataApplication implements CommandLineRunner{
 
     private Movie getSecondMovie() {
         Movie secondMovie = new Movie();
-        secondMovie.setId(2l);
+        secondMovie.setId(2L);
         secondMovie.setRating(9.4d);
         secondMovie.setName("The Dark Knight Rises");
 
@@ -95,7 +95,7 @@ public class ElasticsearchSpringDataApplication implements CommandLineRunner{
 
     private Movie getThirdMovie() {
         Movie thirdMovie = new Movie();
-        thirdMovie.setId(3l);
+        thirdMovie.setId(3L);
         thirdMovie.setRating(8d);
         thirdMovie.setName("Batman Begins");
 
@@ -113,7 +113,7 @@ public class ElasticsearchSpringDataApplication implements CommandLineRunner{
 
     private Movie getForthMovie() {
         Movie forthMovie = new Movie();
-        forthMovie.setId(4l);
+        forthMovie.setId(4L);
         forthMovie.setRating(8d);
         forthMovie.setName("Batman & Robin");
 
